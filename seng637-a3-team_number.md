@@ -24,61 +24,35 @@ This lab delves into software testing methodologies, focusing on manual data-flo
 
 ![alt text](<Data Utilities Calculate Column Total.png>)
 
-DU Pairs per variable:
-For total: (2, 7), (2, 11) (2, 12)
-For rowCount: (3, 4), (3, 8)
-For r2: (4, 4)
-For r2: (8, 8)	
-For n: (5, 6) (5, 7) (9, 10) (9, 11)
+| Variable  | DU Pairs                            |
+|-----------|-------------------------------------|
+| total   | (2, 7), (2, 11), (2, 12)            |
+| rowCount| (3, 4), (3, 8)                      |
+| r2      | (4, 4), (8, 8)                      |
+| n       | (5, 6), (5, 7), (9, 10), (9, 11)    |
 
-DU-Pair Sets:
-du(2, 7, total) = {[2,3,4,5,6,7]}
-du(2, 11, total) = {[2,3,4,5,6,7,8,9,10,11], [2,3,4,8,9,10,11]}
-du(2, 12, total) = {[2,3,4,5,6,7,8,9,10,11,12], [2,3,4,8,9,10,11,12], [2,3,4,8,12], [2,3,4,5,6,7,8,12]}
-du(3,4,rowCount) = {[3, 4]}
-du(3,8,rowCount) = {[3, 4, 8], [3, 4, 5, 6, 7, 8]}
-du(5,6,n) = {[5,6]}
-du(5,7,n) = {[5,6,7]}
-du(9,10,n) = {[9,10]}
-du(9,11,n) = {[9,10,11]}
+| DU Pair           | Sets                                                                                |
+|-------------------|-------------------------------------------------------------------------------------|
+| du(2, 7, total)   | {[2,3,4,5,6,7]}                                                                     |
+| du(2, 11, total)  | {[2,3,4,5,6,7,8,9,10,11], [2,3,4,8,9,10,11]}                                         |
+| du(2, 12, total)  | {[2,3,4,5,6,7,8,9,10,11,12], [2,3,4,8,9,10,11,12], [2,3,4,8,12], [2,3,4,5,6,7,8,12]} |
+| du(3,4,rowCount)  | {[3, 4]}                                                                             |
+| du(3,8,rowCount)  | {[3, 4, 8], [3, 4, 5, 6, 7, 8]}                                                      |
+| du(5,6,n)         | {[5,6]}                                                                              |
+| du(5,7,n)         | {[5,6,7]}                                                                            |
+| du(9,10,n)        | {[9,10]}                                                                             |
+| du(9,11,n)        | {[9,10,11]}                                                                          |
 
 
-For each test case in DataUtilitiesTest, show which pairs are covered:
-calculateColumnTotaWithNegativeValues(): 
-For n: (9, 10) (9, 11)
-For r2: (4, 4)
-For r2: (8, 8)
-For total: (2, 11) (2, 12)
-For rowCount: (3, 4), (3, 8)
-calculateColumnTotalWithPositiveValues():
-For n: (5, 6) (5, 7)
-For r2: (4, 4)
-For r2: (8, 8)
-For total: (2, 7) (2, 12)
-For rowCount: (3, 4), (3, 8)
-calculateColumnTotalWithAllZeroValues():
-For n: (5, 6) (5, 7)
-For r2: (4, 4)
-For r2: (8, 8)
-For total: (2, 7) (2, 12)
-For rowCount: (3, 4), (3, 8)
-calculateColumnTotalWithMixedValues():
-For n: (5, 6) (5, 7)
-For r2: (4, 4)
-For r2: (8, 8)
-For total: (2, 7) (2, 12)
-For rowCount: (3, 4), (3, 8)
-calculateColumnTotalWithNullValues():
-For n: (5, 6) (5,7)
-For r2: (4, 4)
-For r2: (8, 8)
-For total: (2, 7) (2, 12)
-For rowCount: (3, 4), (3, 8)
-calculateColumnTotalWithEmptyData():
-For r2: (4, 4)
-For r2: (8, 8)
-For total: (2, 12)
-For rowCount: (3, 4), (3, 8)
+| Test Case                                   | Covered DU Pairs                                             |
+|---------------------------------------------|--------------------------------------------------------------|
+| calculateColumnTotalWithNegativeValues() | For n: (9, 10), (9, 11) For r2: (4, 4), (8, 8)   | For total: (2, 11), (2, 12) | For rowCount: (3, 4), (3, 8) |
+| calculateColumnTotalWithPositiveValues() | For n: (5, 6), (5, 7) For r2: (4, 4), (8, 8)     | For total: (2, 7), (2, 12)  | For rowCount: (3, 4), (3, 8) |
+| calculateColumnTotalWithAllZeroValues()  | For n: (5, 6) (5, 7) For r2: (4, 4) For r2: (8, 8) | For total: (2, 7) (2, 12) | For rowCount: (3, 4), (3, 8) |
+| calculateColumnTotalWithMixedValues()    | For n: (5, 6) (5, 7) For r2: (4, 4) For r2: (8, 8) | For total: (2, 7) (2, 12) | For rowCount: (3, 4), (3, 8) |
+| calculateColumnTotalWithNullValues()     | For n: (5, 6) (5,7) For r2: (4, 4) For r2: (8, 8)  | For total: (2, 7) (2, 12) | For rowCount: (3, 4), (3, 8) |
+| calculateColumnTotalWithEmptyData()      | For r2: (4, 4) For r2: (8, 8) | For total: (2, 12) | For rowCount: (3, 4), (3, 8) |
+
 
 DU-pair coverage calculation:
 There are 11 pairs, of which, all 11 pairs are covered (as listed above). Therefore, we have a coverage of 100% (11 / 11 * 100%)
@@ -91,17 +65,18 @@ DU Pairs per variable:
 For result: (1, 7) (6,7) (4,7)
 
 DU-Pair Sets:
-du(1,7,result) = {[1, 2, 7], [1, 2, 3, 4, 7], [1, 2, 3, 5, 6, 7], [1, 2, 3, 5, 7]}
-du(6, 7, result) = {[6, 7]}
-du(4, 7, result) = {[4, 7]}
+| DU Pair           | Sets                                                                |
+|-------------------|---------------------------------------------------------------------|
+| du(1,7,result)    | {[1, 2, 7], [1, 2, 3, 4, 7], [1, 2, 3, 5, 6, 7], [1, 2, 3, 5, 7]}   |                 
+| du(6, 7, result)  | {[6, 7]}                                                            |
+| du(4, 7, result)  | {[4, 7]}                                                            |
 
 For each test case in RangeTest, show which pairs are covered:
-testConstrain_ValueWithinRange():
-For result: (1, 7)
-testConstrain_ValueBelowRange():
-For result: (1, 7), (6, 7)
-testConstrain_ValueAboveRange():
-For result: (1, 7), (4, 7)
+| Test Case                                   | Covered DU Pairs                                             |
+|---------------------------------------------|--------------------------------------------------------------|
+| testConstrain_ValueWithinRange()            | For result: (1, 7)                                           |
+| testConstrain_ValueBelowRange()             | For result: (1, 7), (6, 7)                                   |
+| testConstrain_ValueAboveRange()             | For result: (1, 7), (4, 7)                                   |
 
 DU-pair coverage calculation:
 There are 3 pairs, of which, all 3 pairs are also covered (as listed above). Therefore, we have a coverage of 100% (3 / 3 * 100%)
@@ -143,6 +118,7 @@ Assert Correct Behavior - Tests should include assertions that compare the actua
 
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
+
 ![alt text](<table 1.png>)
 ![alt text](<table 2.png>)
 
